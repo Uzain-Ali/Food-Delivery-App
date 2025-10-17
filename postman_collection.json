@@ -1,0 +1,116 @@
+{
+    "info": {
+        "_postman_id": "food-delivery-api-collection",
+        "name": "Food Delivery API Collection",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Create Order",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer your-sanctum-token"  
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": json.stringify({
+                        "restaurant_id": 1,
+                        "user_id": 1,
+                        "total_cost": 50.00
+                    }),
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:8000/api/orders",
+                    "host": ["{{base_url}"],
+                    "path": ["api", "orders"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Top Popular Dishes",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer your-sanctum-token"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8000/api/analytics/popular-dishes/1",
+                    "host": ["{{base_url}"],
+                    "path": ["api", "analytics", "popular-dishes", "1"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Average Delivery Times",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer your-sanctum-token"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8000/api/analytics/delivery-times",
+                    "host": ["{{base_url}"],
+                    "path": ["api", "analytics", "delivery-times"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Active Orders",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer your-sanctum-token"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:8000/api/orders/active",
+                    "host": ["{{base_url}"],
+                    "path": ["api", "orders", "active"]
+                }
+            },
+            "response": []
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8000"  // Update this to your local server URL
+        }
+    ]
+}
